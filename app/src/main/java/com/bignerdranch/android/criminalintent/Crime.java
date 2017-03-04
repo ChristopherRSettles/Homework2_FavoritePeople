@@ -12,7 +12,7 @@ public class Crime {
     public UUID getID() {
         return mID;
     }
-    
+
     public String getTitle() {
         return mTitle;
     }
