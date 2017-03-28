@@ -21,21 +21,28 @@
         android:layout_height="wrap_content"
         android:text="@string/crime_title_label"
         style="?android:listSeparatorTextViewStyle"/>
-    
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:id="@+id/crime_date"
-        android:background="?android:attr/colorFocusedHighlight"/>
 
-    <CheckBox
-        android:id="@+id/crime_solved"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:text="@string/crime_resolved_label"/>
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/crime_date"
+            android:layout_weight="3"
+            />
+
+        <CheckBox
+            android:id="@+id/crime_solved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/crime_resolved_label"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </LinearLayout>

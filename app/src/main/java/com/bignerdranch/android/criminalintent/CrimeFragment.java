@@ -7,7 +7,11 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.text.format.DateFormat;
 
 /**
  * Created by Chris on 3/4/2017.
@@ -17,6 +21,8 @@ public class CrimeFragment extends Fragment {
 
     private Crime mCrime;
     private EditText mTitleField;
+    private Button mDateButton;
+    private CheckBox mSolvedCheckbox;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -46,6 +52,21 @@ public class CrimeFragment extends Fragment {
 
             }
         });
+
+        mDateButton = (Button) v.findViewById(R.id.crime_date);
+        String formattedDate = (String) DateFormat.format("EEEE, MMM d, yyyy",mCrime.getDate());
+        mDateButton.setText(formattedDate);
+        mDateButton.setEnabled(false);
+
+        mSolvedCheckbox = (CheckBox) v.findViewById(R.id.crime_solved);
+        mSolvedCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mCrime.setSolved(isChecked);
+            }
+        });
+
+
         return v;
     }
 }
